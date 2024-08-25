@@ -10,22 +10,6 @@
 		border-radius: 0px;
 	}
 }
-@media (max-width:1300px){
-	.testimonials_area .owl-prev, .testimonials_area .owl-next {
-		right: auto;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 25px;
-		top: auto;
-	}
-	.testimonials_area .owl-prev{
-		transform: rotate(90deg);
-	}
-	.testimonials_area .owl-next{
-		transform: rotate(90deg);
-		margin-left: -40px;
-	}
-}
 @media (max-width:1199px){
 	/* Main Menu Area css
 	============================================================================================ */
@@ -197,7 +181,7 @@
 	.home_banner_area .donation_inner{
 		margin-bottom: -30px;
 	}
-	.home_banner_area .dontation_item{
+	.home_banner_area .donation_item{
 		max-width: 350px;
 		margin: auto;
 	}
@@ -436,7 +420,7 @@
 	.tabs_inner .nav.nav-tabs {
 		margin-bottom: 0px;
 	}
-	.isotope_fillter .gallery_filter li {
+	.isotope_filter .gallery_filter li {
 		margin-right: 17px;
 	}
 }
