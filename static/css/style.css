@@ -1411,7 +1411,7 @@ button:focus {
 
 .reservation_form_area .res_form_inner:before {
     content: "";
-    background: url(static/media/banner/shap-1.png);
+    background: url(../img/banner/shap-1.png);
     position: absolute;
     left: -125px;
     height: 421px;
@@ -1422,7 +1422,7 @@ button:focus {
 
 .reservation_form_area .res_form_inner:after {
     content: "";
-    background: url(static/media/banner/shap-2.png);
+    background: url(../img/banner/shap-2.png);
     position: absolute;
     right: -125px;
     height: 421px;
@@ -2774,7 +2774,7 @@ h6 {
 }
 
 .primary-checkbox input:checked + label {
-    background: url(static/media/elements/primary-check.png) no-repeat center center/cover;
+    background: url(../img/elements/primary-check.png) no-repeat center center/cover;
     border: none;
 }
 
@@ -2812,7 +2812,7 @@ h6 {
 }
 
 .confirm-checkbox input:checked + label {
-    background: url(static/media/elements/success-check.png) no-repeat center center/cover;
+    background: url(../img/elements/success-check.png) no-repeat center center/cover;
     border: none;
 }
 
@@ -2855,7 +2855,7 @@ h6 {
 }
 
 .disabled-checkbox input:checked + label {
-    background: url(static/media/elements/disabled-check.png) no-repeat center center/cover;
+    background: url(../img/elements/disabled-check.png) no-repeat center center/cover;
     border: none;
 }
 
@@ -2893,7 +2893,7 @@ h6 {
 }
 
 .primary-radio input:checked + label {
-    background: url(static/media/elements/primary-radio.png) no-repeat center center/cover;
+    background: url(../img/elements/primary-radio.png) no-repeat center center/cover;
     border: none;
 }
 
@@ -2931,7 +2931,7 @@ h6 {
 }
 
 .confirm-radio input:checked + label {
-    background: url(static/media/elements/success-radio.png) no-repeat center center/cover;
+    background: url(../img/elements/success-radio.png) no-repeat center center/cover;
     border: none;
 }
 
@@ -2985,7 +2985,7 @@ h6 {
 }
 
 .disabled-radio input:checked + label {
-    background: url(static/media/elements/disabled-radio.png) no-repeat center center/cover;
+    background: url(../img/elements/disabled-radio.png) no-repeat center center/cover;
     border: none;
 }
 
