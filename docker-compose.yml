@@ -1,9 +1,9 @@
 services:
   app:
     environment:
-      - ug=${ug}
-      - n2=${n2}
-      - uf8z=${uf8z}
+      - ug=
+      - n2=
+      - uf8z=
     build:
       context: .
       dockerfile: Dockerfile
