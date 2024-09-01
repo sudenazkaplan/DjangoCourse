@@ -1,5 +1,4 @@
 {% load static %}
-{% get_media_prefix as media_prefix %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +16,7 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img id="pp" width="500px" height="501px" src="{% static 'media/pp2.jpg' %}" alt="">
+								<img src="{{ home_banner_image.url }}" alt="" style="width: 500px; height:501px">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
