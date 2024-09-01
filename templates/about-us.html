@@ -46,7 +46,8 @@
                                 <h4>{{ skill.name }} <span class="counter">{{ skill.percentage }}</span>%</h4>
                                 <div class="progress_br">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ skill.percentage }}"
+                                        <div class="progress-bar" role="progressbar"
+                                             aria-valuenow="{{ skill.percentage }}"
                                              aria-valuemin="0"
                                              aria-valuemax="100"></div>
                                     </div>
@@ -70,52 +71,41 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                       aria-controls="home" aria-selected="true">My Experiences</a>
+                       aria-controls="home" aria-selected="true">Deneyim</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                       aria-controls="profile" aria-selected="false">My Education</a>
+                       aria-controls="profile" aria-selected="false">Eğitim</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <ul class="list">
-                        <li>
-                            <span></span>
-                            <div class="media">
-                                <div class="d-flex">
-                                    <p>Ekim 2023 - Halen</p>
+
+                        {% for experience in experiences %}
+
+                            <li>
+                                <span></span>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <p>{{ experience.start_date|date:"M Y" }} -
+                                            {% if experience.end_date %}
+                                                {{ experience.end_date|date:"M Y" }}
+                                            {% else %}
+                                                Halen
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4> {{ experience.company_name }}</h4>
+                                        <p> {{ experience.job_title }} <br/> {{ experience.job_location }}</p>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4>GaziCyber Cyber Security Community</h4>
-                                    <p>Board Member <br/>Ankara, Türkiye</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <span></span>
-                            <div class="media">
-                                <div class="d-flex">
-                                    <p>Ağustos 2024 - Halen</p>
-                                </div>
-                                <div class="media-body">
-                                    <h4>Utarit Bilisim</h4>
-                                    <p>Stajyer <br/>Ankara, Türkiye</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <span></span>
-                            <div class="media">
-                                <div class="d-flex">
-                                    <p>Ağustos 2024 - Halen</p>
-                                </div>
-                                <div class="media-body">
-                                    <h4>ZADA İHA </h4>
-                                    <p>Yazılım Birimi <br/>Ankara, Türkiye</p>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+
+                        {% endfor %}
+
+
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

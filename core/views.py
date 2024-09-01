@@ -1,7 +1,7 @@
 from tkinter import Image
 
 from django.shortcuts import render
-from core.models import GeneralSetting, ImageSetting, Skill
+from core.models import GeneralSetting, ImageSetting, Skill, Experience
 
 
 # Create your views here.
@@ -51,10 +51,14 @@ def about(request):
     #Skills
     skills = Skill.objects.all().order_by('order')
 
+    #experience
+    experiences = Experience.objects.all().order_by('-start_date')
+
     context = {
         'about_myself_welcome' : about_myself_welcome,
         'about_myself_footer' : about_myself_footer,
         'skills' : skills,
+        'experiences' : experiences,
     }
 
     return render(request, 'about-us.html', context=context)
