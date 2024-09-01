@@ -1,7 +1,7 @@
 from tkinter import Image
 
 from django.shortcuts import render
-from core.models import GeneralSetting, ImageSetting
+from core.models import GeneralSetting, ImageSetting, Skill
 
 
 # Create your views here.
@@ -48,9 +48,13 @@ def about(request):
     about_myself_welcome = GeneralSetting.objects.get(name='about_myself_welcome').parameter
     about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
 
+    #Skills
+    skills = Skill.objects.all().order_by('order')
+
     context = {
         'about_myself_welcome' : about_myself_welcome,
         'about_myself_footer' : about_myself_footer,
+        'skills' : skills,
     }
 
     return render(request, 'about-us.html', context=context)
