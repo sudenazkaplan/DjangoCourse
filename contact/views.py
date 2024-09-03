@@ -7,28 +7,28 @@ from contact.models import Message
 
 def contact_form(request):
     if request.POST:
-        name = request.POST['name']
-        email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
         success = True,
         message = 'İletişim formu başarıyla gönderildi!'
 
     else:
-        success = False
+        success = False,
         message = 'Önerilen yöntem geçerli değil.'
 
     Message.objects.create(
-        name=name,
-        email=email,
-        subject=subject,
-        message=message,
+        name = name,
+        email = email,
+        subject = subject,
+        message = message,
     )
 
     context = {
-        'success': True,
-        'message': 'İletişim formu başarıyla gönderildi!'
+        'success': success,
+        'message': message,
     }
     return JsonResponse(context)
 

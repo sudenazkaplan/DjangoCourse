@@ -45,18 +45,11 @@ def index(request):
 
 
 def contact(request):
-    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
-
-    context = {
-        'about_myself_footer': about_myself_footer,
-    }
-
-    return render(request, 'contact.html', context=context)
+    return render(request, 'contact.html')
 
 
 def about(request):
     about_myself_welcome = GeneralSetting.objects.get(name='about_myself_welcome').parameter
-    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
 
     # Skills
     skills = Skill.objects.all().order_by('order')
@@ -67,7 +60,6 @@ def about(request):
 
     context = {
         'about_myself_welcome': about_myself_welcome,
-        'about_myself_footer': about_myself_footer,
         'skills': skills,
         'experiences': experiences,
         'educations': educations,
@@ -77,13 +69,8 @@ def about(request):
 
 
 def portfolio(request):
-    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
 
-    context = {
-        'about_myself_footer': about_myself_footer,
-    }
-
-    return render(request, 'portfolio.html', context=context)
+    return render(request, 'portfolio.html')
 
 
 def redirect_urls(request, slug):
