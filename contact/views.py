@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import JsonResponse
 
 
@@ -10,3 +11,5 @@ def contact_form(request):
     }
     return JsonResponse(context)
 
+def contact(request):
+    return render(request, 'contact.html')

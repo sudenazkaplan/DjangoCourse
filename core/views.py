@@ -6,6 +6,20 @@ from core.models import GeneralSetting, ImageSetting, Skill, Experience, Educati
 
 # Create your views here.
 
+def layout(request):
+    documents = Document.objects.all()
+    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
+    site_favicon = ImageSetting.objects.get(name='site_favicon').file
+    social_medias = SocialMedia.objects.all()
+
+    context = {
+        'documents': documents,
+        'about_myself_footer': about_myself_footer,
+        'site_favicon': site_favicon,
+        'social_medias': social_medias,
+    }
+    return context
+
 def index(request):
     site_title = GeneralSetting.objects.get(name='site_title').parameter
     site_keywords = GeneralSetting.objects.get(name='site_keywords').parameter
@@ -13,14 +27,9 @@ def index(request):
     home_banner_name = GeneralSetting.objects.get(name='home_banner_name').parameter
     home_banner_title = GeneralSetting.objects.get(name='home_banner_title').parameter
     home_banner_description = GeneralSetting.objects.get(name='home_banner_description').parameter
-    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
 
     # Images
     home_banner_image = ImageSetting.objects.get(name='home_banner_image').file
-    site_favicon = ImageSetting.objects.get(name='site_favicon').file
-
-    social_medias = SocialMedia.objects.all()
-    documents = Document.objects.all()
 
     context = {
         'site_title': site_title,
@@ -29,11 +38,7 @@ def index(request):
         'home_banner_name': home_banner_name,
         'home_banner_title': home_banner_title,
         'home_banner_description': home_banner_description,
-        'about_myself_footer': about_myself_footer,
         'home_banner_image': home_banner_image,
-        'site_favicon': site_favicon,
-        'social_medias': social_medias,
-        'documents': documents,
     }
 
     return render(request, 'index.html', context=context)
