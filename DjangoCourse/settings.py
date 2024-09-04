@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import environ
+from django.conf.global_settings import EMAIL_BACKEND
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
@@ -134,3 +135,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Email Settings
+vars().update(env.email_url())
+DEFAULT_FROM_EMAIL = 'Sudenaz Kaplan <sudenazkaplan39@gmail.com>'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
