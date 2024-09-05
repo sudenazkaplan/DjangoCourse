@@ -38,9 +38,8 @@ class GeneralSetting(AbstractModel):
         verbose_name='Description',
         help_text='',
     )
-    parameter = models.CharField(
+    parameter = models.TextField(
         default='',
-        max_length=254,
         blank=True,
         verbose_name='Parameter',
         help_text='',
