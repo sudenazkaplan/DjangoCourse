@@ -6,13 +6,39 @@ from core.models import GeneralSetting, ImageSetting, Skill, Experience, Educati
 
 # Create your views here.
 
+def get_general_setting(parameter):
+    try:
+        obj = about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
+    except:
+        obj = ''
+
+    return obj
+
+def get_image_setting(parameter):
+    try:
+        obj = site_favicon = ImageSetting.objects.get(name='site_favicon').file
+    except:
+        obj = ''
+
+    return obj
+
+
 def layout(request):
+    site_title = get_general_setting('site_title')
+    site_keywords = get_general_setting('site_keywords')
+    site_description = get_general_setting('site_description')
+    about_myself_footer = get_general_setting('about_myself_footer')
+
+    # Images
+    site_favicon = get_image_setting('site_favicon')
+
     documents = Document.objects.all()
-    about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
-    site_favicon = ImageSetting.objects.get(name='site_favicon').file
     social_medias = SocialMedia.objects.all()
 
     context = {
+        'site_title': site_title,
+        'site_keywords': site_keywords,
+        'site_description': site_description,
         'documents': documents,
         'about_myself_footer': about_myself_footer,
         'site_favicon': site_favicon,
@@ -21,9 +47,6 @@ def layout(request):
     return context
 
 def index(request):
-    site_title = GeneralSetting.objects.get(name='site_title').parameter
-    site_keywords = GeneralSetting.objects.get(name='site_keywords').parameter
-    site_description = GeneralSetting.objects.get(name='site_description').parameter
     home_banner_name = GeneralSetting.objects.get(name='home_banner_name').parameter
     home_banner_title = GeneralSetting.objects.get(name='home_banner_title').parameter
     home_banner_description = GeneralSetting.objects.get(name='home_banner_description').parameter
@@ -32,9 +55,6 @@ def index(request):
     home_banner_image = ImageSetting.objects.get(name='home_banner_image').file
 
     context = {
-        'site_title': site_title,
-        'site_keywords': site_keywords,
-        'site_description': site_description,
         'home_banner_name': home_banner_name,
         'home_banner_title': home_banner_title,
         'home_banner_description': home_banner_description,
