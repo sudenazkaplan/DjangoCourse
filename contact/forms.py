@@ -1,7 +1,6 @@
 from django import forms
-from django.core.mail import EmailMessage, send_mail
-
 from django.conf import settings
+from django.core.mail import EmailMessage
 
 
 class ContactForm(forms.Form):
@@ -28,17 +27,16 @@ class ContactForm(forms.Form):
             email = self.cleaned_data['email']
             subject = self.cleaned_data['subject']
             message = self.cleaned_data['message']
-            message_context = 'Message received.\n\n' \
+            message_context = 'Mesaj Alındı.\n\n' \
                               'Name: %s\n' \
                               'Email: %s\n' \
                               'Subject: %s\n' \
                               'Message: %s' % (name, subject, email, message)
-            # send email here
-
+            #Send email here
             email = EmailMessage(
                 subject,
                 message_context,
                 to=[settings.DEFAULT_FROM_EMAIL],
-                reply_to=[email]
+                reply_to=[email],
             )
             email.send()

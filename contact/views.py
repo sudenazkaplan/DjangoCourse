@@ -7,7 +7,7 @@ from contact.forms import ContactForm
 # Create your views here.
 
 def contact_form(request):
-    if request.POST:
+    if request.method == "POST":
         contact_form = ContactForm(request.POST or None)
         if contact_form.is_valid():
             name = request.POST.get('name')
@@ -24,7 +24,7 @@ def contact_form(request):
 
             contact_form.send_mail()
 
-            success = True,
+            success = True
             message = 'İletişim formu başarıyla gönderildi!'
         else:
             success = False

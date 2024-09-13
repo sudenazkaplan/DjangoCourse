@@ -8,7 +8,7 @@ from core.models import GeneralSetting, ImageSetting, Skill, Experience, Educati
 
 def get_general_setting(parameter):
     try:
-        obj = about_myself_footer = GeneralSetting.objects.get(name='about_myself_footer').parameter
+        obj = GeneralSetting.objects.get(name=parameter).parameter
     except:
         obj = ''
 
@@ -16,7 +16,7 @@ def get_general_setting(parameter):
 
 def get_image_setting(parameter):
     try:
-        obj = site_favicon = ImageSetting.objects.get(name='site_favicon').file
+        obj = ImageSetting.objects.get(name=parameter).file
     except:
         obj = ''
 
@@ -47,12 +47,12 @@ def layout(request):
     return context
 
 def index(request):
-    home_banner_name = GeneralSetting.objects.get(name='home_banner_name').parameter
-    home_banner_title = GeneralSetting.objects.get(name='home_banner_title').parameter
-    home_banner_description = GeneralSetting.objects.get(name='home_banner_description').parameter
+    home_banner_name = get_general_setting('home_banner_name')
+    home_banner_title = get_general_setting('home_banner_title')
+    home_banner_description = get_general_setting('home_banner_description')
 
     # Images
-    home_banner_image = ImageSetting.objects.get(name='home_banner_image').file
+    home_banner_image = get_image_setting('home_banner_image')
 
     context = {
         'home_banner_name': home_banner_name,
@@ -69,7 +69,9 @@ def contact(request):
 
 
 def about(request):
-    about_myself_welcome = GeneralSetting.objects.get(name='about_myself_welcome').parameter
+    about_myself_welcome = get_general_setting('about_myself_welcome')
+    about_myself_welcome2 = get_general_setting('about_myself_welcome2')
+    about_myself_welcome3 = get_general_setting('about_myself_welcome3')
 
     # Skills
     skills = Skill.objects.all().order_by('order')
@@ -80,6 +82,8 @@ def about(request):
 
     context = {
         'about_myself_welcome': about_myself_welcome,
+        'about_myself_welcome2': about_myself_welcome2,
+        'about_myself_welcome3': about_myself_welcome3,
         'skills': skills,
         'experiences': experiences,
         'educations': educations,
@@ -89,7 +93,6 @@ def about(request):
 
 
 def portfolio(request):
-
     return render(request, 'portfolio.html')
 
 
