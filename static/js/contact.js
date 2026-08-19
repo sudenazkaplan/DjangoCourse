@@ -42,10 +42,6 @@ $(document).ready(function(){
                     required: "Bir konu başlığı girmelisiniz",
                     minlength: "En az 4 karakter içermeli"
                 },
-                number: {
-                    required: "Bir numara girmelisiniz",
-                    minlength: "En az 5 karakterden oluşmalı"
-                },
                 email: {
                     required: "Bir email adresi girmelisiniz"
                 },

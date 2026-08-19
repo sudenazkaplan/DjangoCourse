@@ -7,6 +7,7 @@ from contact.forms import ContactForm
 # Create your views here.
 
 def contact_form(request):
+    print("DEBUG: contact_form tetiklendi", request.method, request.POST)
     if request.method == "POST":
         contact_form = ContactForm(request.POST or None)
         if contact_form.is_valid():

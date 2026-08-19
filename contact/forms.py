@@ -39,4 +39,4 @@ class ContactForm(forms.Form):
                 to=[settings.DEFAULT_FROM_EMAIL],
                 reply_to=[email],
             )
-            email.send()
+            email.send(fail_silently=True)
